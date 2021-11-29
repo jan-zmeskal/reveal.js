@@ -37,7 +37,7 @@
 
             <section>
                 <h3>Not all debt is bad</h3>
-                <img id="debt-balance" src="assets/adr/debt_balance.png" width="600" height="auto">
+                <img class="black-border" src="assets/adr/debt_balance.png" width="600" height="auto">
             </section>
 
             <section>
@@ -71,27 +71,136 @@
                     <span>-> Architecture Decision</span>
                     <span>-> Architecture Decision Record</span>
                 </p>
+                <br>
+                <a href="https://github.com/joelparkerhenderson/architecture-decision-record" class="source-link">ADR
+                    repository on
+                    GitHub</a>
             </section>
 
             <section data-auto-animate>
                 <h3>Boring Theory</h3>
+                <p>Architecture Decision Log</p>
                 <p class="adr-flow">
-                    <span>Architecturally-significant Requirement </span>
-                    <span>-> Architecture Decision</span>
+                    <span class="adr-flow-element-dimmed">Architecturally-significant Requirement </span>
+                    <span class="adr-flow-element-dimmed">-> Architecture Decision -> </span>
+                    <span>Architecture Decision Record</span>
+                </p>
+                <p class="adr-flow">
+                    <span class="adr-flow-element-dimmed">Architecturally-significant Requirement -> </span>
+                    <span class="adr-flow-element-dimmed">Architecture Decision</span>
                     <span>-> Architecture Decision Record</span>
                 </p>
                 <p class="adr-flow">
-                    <span>Architecturally-significant Requirement </span>
-                    <span>-> Architecture Decision</span>
+                    <span class="adr-flow-element-dimmed">Architecturally-significant Requirement -> </span>
+                    <span class="adr-flow-element-dimmed">Architecture Decision</span>
                     <span>-> Architecture Decision Record</span>
                 </p>
-                <p class="adr-flow">
-                    <span>Architecturally-significant Requirement </span>
-                    <span>-> Architecture Decision</span>
-                    <span>-> Architecture Decision Record</span>
-                </p>
+                <br>
+                <a href="https://github.com/joelparkerhenderson/architecture-decision-record" class="source-link">ADR
+                    repository on
+                    GitHub</a>
             </section>
 
+            <section>
+                <h3>Why?</h3>
+                <div style="font-size: 28pt;">
+                    <p class="fragment">Not all decisions are made at the start of an agile project</p>
+                    <p class="fragment">We don't document motivation behind decisions we make</p>
+                    <p class="fragment">When looking at a past decision, we have two options ✌️</p>
+                    <p>
+                        <span class="fragment">Blindly accept it </span>
+                        <span class="fragment"> 🙈 Blindly change it</span>
+                    </p>
+                </div>
+            </section>
+
+            <section>
+                <h3>Blind acceptance 👍</h3>
+                <p>May be OK if the decision is still valid</p>
+                <p>Developers' fear to change anything</p>
+                <p>Software collapsing under its own weight</p>
+            </section>
+
+            <section>
+                <h3>Blind change 💣</h3>
+                <p>May be OK if the context has changed</p>
+                <p>Risk of damaging project's value</p>
+                <p>Potential of wasted time</p>
+            </section>
+
+            <section>
+                <h3>Tried and tested practice</h3>
+                <img src="assets/adr/radar.png" height="500" width="auto" class="black-border">
+                <br>
+                <a href="https://www.thoughtworks.com/de-de/radar/techniques/lightweight-architecture-decision-records"
+                    class="source-link">ThoughtWorks on Lightweight ADRs</a>
+            </section>
+
+            <section>
+                <h3>How?</h3>
+                <div style="font-size: 22pt;">
+                    <p class="fragment">Agile is not opposed to documentation, only to valueless documentation</p>
+                    <p class="fragment">Documents that assist the team can have value if kept up to date</p>
+                    <p class="fragment">Large documents are neither read, nor kept updated</p>
+                    <p class="fragment">Small, modular documents are easy to read and update</p>
+                </div>
+            </section>
+
+            <section>
+                <h3>Getting started</h3>
+                <pre>
+                    <code class="language-bash hljs" data-trim>
+                        $ mkdir doc/decisions
+                        $ touch doc/decisions/001_choose_db_backend.md
+                    </code>
+                </pre>
+            </section>
+
+            <section>
+                <h3>ADR templates</h3>
+                <ul>
+                    <li>Freeform 🚴</li>
+                    <li>Light-weight structure 🏍️</li>
+                    <li>Formal with complex structure ✈️</li>
+                </ul>
+                <br>
+                <a href="https://github.com/joelparkerhenderson/architecture-decision-record#adr-example-templates"
+                    class="source-link">Template examples on GitHub</a>
+            </section>
+
+            <section>
+                <h3>Michael Nygard's template</h3>
+                <pre data-id="code-animation"><code class="language-markdown hljs" data-trim data-line-numbers="|1|3-5|6|8-13|15-16|18-21|22-25|26-28"><script type="text/template">
+                    # Choose DB backend
+
+                    ## Status
+                    Proposed on 2021-11-30
+                    Accepted on 2021-12-24
+                    Superseded on 2022-07-28 by 012-upgrade-db-backend.md
+
+                    ## Context
+                    Storing persistent data in simple text files is not good
+                    enough for our application now. We need proper database.
+                    It must be easy to back up regularly and there also must
+                    be a mature python library for querying the DB. We have
+                    one limitation from business side - it must not be MSSQL.
+
+                    ## Decision
+                    We decided to go with SQLite.
+
+                    ## Consequences
+                    Choosing SQLite enables us to keep fast pace of development
+                    as we all know it and it's super easy to use. However, there
+                    are two things to keep in mind.
+                    1. It's possible that we'll stick with SQLite forever.
+                    It can be used for production in certain conditions.
+                    If we have more than 10.000 user accounts though,
+                    we should switch to more powerful DB engine.
+                    2. Maybe NoSQL would be better fit for us. Unfortunately,
+                    nobody has any experience with this. We decided to research
+                    this option in Q1 2022.
+                </script></code></pre>
+            </section>
         </div>
 
     </div>

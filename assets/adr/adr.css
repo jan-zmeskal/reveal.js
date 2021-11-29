@@ -1,4 +1,4 @@
-#debt-balance {
+.black-border {
     border: 3px solid rgb(0, 0, 0);
 }
 
@@ -8,4 +8,8 @@
 
 .adr-flow {
     font-size: 16pt;
+}
+
+.adr-flow-element-dimmed {
+    opacity: 0.3;
 }
